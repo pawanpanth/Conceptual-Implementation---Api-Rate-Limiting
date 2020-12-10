@@ -36,7 +36,7 @@ app.get("/api/posts",(req,res)=>{
                 firstMax = req.query.max;
             }       
         }
-        if(count >= 5){
+        if(count >= 4){
             res.status(429).send({message: "Exceed Number of API Calls"});
         }else{
             let maxVal = Math.min(firstMax,req.query.max);
