@@ -14,7 +14,7 @@ const fun = () =>{
 
 }
 let firstMax;
-const increseCount = () =>{
+const increaseCount = () =>{
     count = count+1;
 }
 
