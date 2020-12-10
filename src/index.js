@@ -32,7 +32,7 @@ app.get("/api/posts",(req,res)=>{
                 res.send(posts.slice(0,10));
                 firstMax = 10;
             }else{
-                res.send(posts.slice(0,max));
+                res.send(posts.slice(0,req.query.max));
                 firstMax = req.query.max;
             }       
         }
