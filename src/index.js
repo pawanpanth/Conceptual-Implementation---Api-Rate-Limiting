@@ -31,26 +31,28 @@ app.get("/api/posts",(req,res)=>{
 
         if(count === 1 ){ 
             if(!req.query.max){
-                console.log("i am first and i dont have max");
+                // console.log("i am first and i dont have max");
                 res.send(posts.slice(0,10));
             }
             else if(req.query.max >= 21){
-                console.log("i am first and my max is greater than 20");
+                // console.log("i am first and my max is greater than 20");
 
                 firstMax = 10;
                 res.send(posts.slice(0,10));
                 
             }else{
-                console.log("i am first and my max is less than 20");
+                // console.log("i am first and my max is less than 20");
 
                 firstMax = req.query.max;
                 res.send(posts.slice(0,req.query.max));
                 
             }       
         }
-        else if(count >= 5){
+        else if(count > 5){
             res.status(429).send({message: "Exceed Number of API Calls"});
-        }else{
+        }
+        
+        else{
 
             if(firstMax && req.query.max){
                 let maxVal = Math.min(firstMax,req.query.max);
